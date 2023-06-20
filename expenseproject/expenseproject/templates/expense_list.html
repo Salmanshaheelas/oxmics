@@ -29,10 +29,12 @@
             Expense Tracker
         {% if user.is_authenticated %}
         <li>Hello {{user.username}}</li>
-        <a href="credentials/logout" class="btn btn-sm btn-primary">Log Out</a>
+        <a href="{% url 'credentials:logout' %}" class="btn btn-sm btn-primary">Log Out</a>
         {% else %}
-        <a href="credentials/register" class="btn btn-sm btn-primary">Register</a>
-        <a href="credentials/login" class="btn btn-sm btn-primary">Log In</a>
+        <a href="{% url 'credentials:register' %}" class="btn btn-sm btn-primary">Register</a>
+        <a href="{% url 'credentials:login' %}" class="btn btn-sm btn-primary">Log In</a>
+<!--            <a href="{% url 'user_detail' user_id=request.user.id %}">User Detail</a>-->
+<!--    <a href="{% url 'user_update' user_id=request.user.id %}">Edit User</a>-->
         {% endif %}
         </a>
     </nav>
@@ -64,6 +66,11 @@
                     </td>
                 </tr>
                 {% endfor %}
+<!--            <form action="{% url 'expenseapp:send_monthly_summary' %}" method="post">-->
+<!--                {% csrf_token %}-->
+<!--                <button type="submit">Send Account Summary Email</button>-->
+<!--            </form>-->
+
             </tbody>
         </table>
     </div>

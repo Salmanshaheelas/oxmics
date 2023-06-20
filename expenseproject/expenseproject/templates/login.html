@@ -1,10 +1,16 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Log In</title>-->
+<!--</head>-->
+<!--<body >-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Log In</title>
+    <title>Expense Tracker - Login</title>
 </head>
-<body >
+<body>
     <style>
         .form1{
             margin: auto;
@@ -15,13 +21,16 @@
     </style>
     <div class="form1">
         <h1 style="text-align:centre;font-family: Arial, Helvetica, sans-serif;color:#FFFFFF">Sign Up</h1>
-        <form action="login" method="post">
-            {% csrf_token %}
+        <h1>Login</h1>
+    <form method="post">
+        {% csrf_token %}
           <input type="text" name="username" placeholder="Enter your UserName " style="margin-bottom:2%;padding:1% ;padding-right: 50px;"><br>
           <input type="password" name="password" placeholder="Enter Your Password"style="margin-bottom:2%;padding:1% ;padding-right: 50px;"><br>
             <input type="submit" name="Log In" style="margin-top:2% ;value"><br>
+    </form>
 
-        </form>
-    </div>
+    <a href="{% url 'credentials:register' %}">Don't have an account? Register</a>
 </body>
 </html>
+
+

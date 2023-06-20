@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Account Summary</title>
+    <title>Expense Tracker - Monthly Account Summary</title>
 </head>
 <body>
-    <h1>Account Summary</h1>
-
-    <h2>{{ summary_data.month }} {{ summary_data.year }}</h2>
-
+    <h1>Monthly Account Summary</h1>
     <table>
         <thead>
             <tr>
@@ -18,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for expense in summary_data.expenses %}
+            {% for expense in expenses %}
             <tr>
                 <td>{{ expense.date }}</td>
                 <td>{{ expense.category }}</td>
@@ -28,10 +25,6 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <p>Total Expenses: {{ summary_data.total_expenses }}</p>
-    <p>Average Daily Expense: {{ summary_data.average_daily_expense }}</p>
-
-    <p>Thank you for using our expense tracker!</p>
+    <p><strong>Total Expenses:</strong> {{ total_expenses }}</p>
 </body>
 </html>
