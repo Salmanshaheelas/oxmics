@@ -123,19 +123,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Email configuration code
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'  # Example: smtp.gmail.com
 EMAIL_PORT = 587  # Port number for your email host
-EMAIL_HOST_USER = 'salmanshaheelas@gail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'Salman@123'  # Your email password
+EMAIL_HOST_USER = 'salmanshaheelas@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'rtiygzmuelwauyvq'  # Your email password
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'salmanshaheelas@gmail.com'
 
+# Auth configurations
 AUTH_USER_MODEL = 'auth.User'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-CRONJOBS = [
-    ('0 0 1 * *', 'expenses.views.send_monthly_summary', '>> /tmp/cronjob.log')
-]
+

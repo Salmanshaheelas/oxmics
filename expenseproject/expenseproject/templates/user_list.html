@@ -19,9 +19,9 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <a href="{% url 'expenseapp:user_detail' user_id=user.id %}">View</a> |
-                    <a href="{% url 'expenseapp:user_update' user_id=user.id %}">Edit</a> |
-                    <form method="post" action="{% url 'expenseapp:user_delete' user_id=user.id %}">
+                    <a href="{% url 'user_detail' user_id=user.id %}">View</a> |
+                    <a href="{% url 'user_update' user_id=user.id %}">Edit</a> |
+                    <form method="post" action="{% url 'user_delete' user_id=user.id %}">
                         {% csrf_token %}
                         <input type="submit" value="Delete">
                     </form>
