@@ -30,13 +30,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'expenseapp',
-    'credentials',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework',
+    'djoser',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "expenseproject.urls"
@@ -134,8 +139,24 @@ EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'salmanshaheelas@gmail.com'
 
 # Auth configurations
-AUTH_USER_MODEL = 'auth.User'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+# AUTH_USER_MODEL = 'auth.User'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+CORS_ORIGIN_ALLOW_ALL = True
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
+DJOSER = {
+    'LOGIN_FIELD': 'email',
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    'SERIALIZERS': {},
+}
 
+# AUTH_USER_MODEL = 'expenseapp.User'

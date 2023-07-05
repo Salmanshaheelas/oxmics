@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block body %}
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ request.user.username }}</h1>
+
+<div class="container" style="margin-top:25px;">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Available Balance</h5>
+                    <p class="card-text">{{ available_balance }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Total Expenses</h5>
+                    <p class="card-text">{{ total_expenses }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Total Income</h5>
+                    <p class="card-text">{{ total_income }}</p>
+                </div>
+            </div>
+            <a href="{% url 'create_expense' %}" class="btn btn-primary mb-3">Create Expense</a>
+            <a href="{% url 'add_income' %}" class="btn btn-primary mb-3">Add Income</a>
+        </div>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.created_at }}</td>
+                    <td>{{ expense.category }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.title }}</td>
+                    <td class="actions">
+                        <a href="{% url 'update_expense' expense.id %}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{% url 'delete_expense' expense.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            <tbody/>
+        <table/>
+    </div>
+    <div>
+      <a href="{% url 'send_mail_view' %}" class="btn btn-sm btn-danger">Send Summary Mail</a>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            background-image: url({% static 'images\Modern Minimalist Simple Technology Banner.png' %});
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 450px
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="home">
+   <div class="background_image" style="background-image:url({% static 'images/Modern Minimalist Simple Technology Banner.png' %})"></div>
+   <div class="buttons">
+        <button onclick="location.href='/register'" class="btn btn-primary mb-3">Register</button>
+        <button onclick="location.href='/login'" class="btn btn-primary mb-3">Login</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Expense Tracker - Register</title>
 </head>
-<body>
+<body style="background-image:url({% static 'images/joanna-kosinska-7ACuHoezUYk-unsplash.jpg' %});background-size:1560px">
 
 
 <style>
@@ -19,7 +20,7 @@
     <div class="form1">
         <h1 style="text-align:centre;font-family: Arial, Helvetica, sans-serif;color:#FFFFFF">Sign Up</h1>
         <h1>Register</h1>
-        <form action="register" method="post">
+        <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
           <input type="text" name="username" placeholder="Enter your UserName " style="margin-bottom:2%;padding:1% ;padding-right: 50px;"><br>

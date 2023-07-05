@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Expense</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Expense</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ expense_form.as_p }}
+            <button type="submit" class="btn btn-primary" name="expense">Create Expense</button>
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            {{ cat_form.as_p }}
+            <button type="submit" class="btn btn-primary" name="category">Create New Category</button>
+        </form>
+    </div>
+</body>
+</html>

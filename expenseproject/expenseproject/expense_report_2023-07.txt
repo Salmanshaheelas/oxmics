@@ -1,0 +1,4 @@
+food: 250.00
+transportation: 500.00
+utilities: 1100.00
+other: 250.00
