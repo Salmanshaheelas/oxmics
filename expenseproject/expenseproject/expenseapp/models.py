@@ -1,54 +1,25 @@
 from django.utils import timezone
-from django.db import models
 from django.contrib.auth.models import User
 from django.db import models
 
 
 # Create your models here.
 
-# Models for the categories of Expenses
-# class Expense(models.Model):
-#     CATEGORY_CHOICES = [
-#         ('food', 'Food'),
-#         ('transportation', 'Transportation'),
-#         ('utilities', 'Utilities'),
-#         ('other', 'Other'),
-#     ]
-#
-#     category = models.CharField(max_length=250, choices=CATEGORY_CHOICES)
-#     amount = models.DecimalField(max_digits=8, decimal_places=2)
-#     description = models.TextField()
-#     date = models.DateField(auto_now_add=True)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return self.name
-#
-
-
-#
 class Category(models.Model):
     name = models.CharField(max_length=100)
-
 
     def __str__(self):
         return self.name
 
 
 class Expense(models.Model):
-    # CATEGORY_CHOICES = [
-    #     ('food', 'Food'),
-    #     ('transportation', 'Transportation'),
-    #     ('utilities', 'Utilities'),
-    #     ('other', 'Other'),
-    # ]
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, default='')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     def save(self, *args, **kwargs):
         if not self.created_at:
             self.created_at = timezone.now()
@@ -56,6 +27,7 @@ class Expense(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Income(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -67,6 +39,7 @@ class Email(models.Model):
     username = models.CharField(max_length=250)
     email_id = models.EmailField(max_length=250)
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     username = models.CharField(max_length=150)
@@ -77,6 +50,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
-
-
-

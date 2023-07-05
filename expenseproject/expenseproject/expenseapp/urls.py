@@ -20,10 +20,9 @@
 
 from django.urls import include, path
 from rest_framework import routers
-from .views import ExpenseViewSet, ReactView
+from .views import ExpenseViewSet
 from . import views
 router = routers.DefaultRouter()
-# router.register(r'categories', CategoryViewSet)
 router.register(r'expenses', ExpenseViewSet)
 
 urlpatterns = [
@@ -39,5 +38,4 @@ urlpatterns = [
     path('expense/delete/<int:expense_id>/', views.delete_expense, name='delete_expense'),
     path('user/settings/', views.user_settings, name='user_settings'),
     path('send_mail_view', views.send_mail_view, name='send_mail_view'),
-    path('wel/', ReactView.as_view(), name="something")
 ]

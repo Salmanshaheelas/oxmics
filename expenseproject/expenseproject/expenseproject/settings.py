@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'djoser',
     'rest_framework.authtoken',
     'rest_auth',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +50,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "expenseproject.urls"
@@ -142,14 +140,13 @@ DEFAULT_FROM_EMAIL = 'salmanshaheelas@gmail.com'
 # AUTH_USER_MODEL = 'auth.User'
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
-CORS_ORIGIN_ALLOW_ALL = True
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.AllowAny'
     ]
 }
 

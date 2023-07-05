@@ -21,16 +21,6 @@ from django.urls import path, include
 from djoser import views as djoser_views
 
 
-
-#
-# urlpatterns = [
-#     path("admin/", admin.site.urls),
-#     path('', include('expenseapp.urls')),
-#     path('auth/', include('djoser.urls')),
-#     path('auth/', include('djoser.urls.authtoken')),
-# ]
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
